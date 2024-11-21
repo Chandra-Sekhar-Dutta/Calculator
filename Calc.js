@@ -67,22 +67,31 @@ function Operations() {
 function FindSolution() {
     Equals.addEventListener("click", () => {
         try {
-            if (display.value != "") {
-                display.value = eval(display.value)
+            if (display.value.trim() !== "") {
+                const result = eval(display.value);
+                if (result === Infinity || result === -Infinity) {
+                    display.value = "Infinity";
+                    setTimeout(() => {
+                        display.value = "";
+                    }, 1500);
+                } else {
+                    display.value = result;
+                }
             } else {
-                display.value = "No Input"
+                display.value = "No Input";
                 setTimeout(() => {
-                    display.value = ""
-                }, 2000)
+                    display.value = "";
+                }, 2000);
             }
         } catch {
-            display.value = "Invalid Input"
+            display.value = "Invalid Input";
             setTimeout(() => {
-                display.value = ""
-            }, 2000)
+                display.value = "";
+            }, 2000);
         }
-    })
+    });
 }
+
 
 // safer options than eval()
 
@@ -131,7 +140,7 @@ function ChangeBAckground() {
     Equals.addEventListener("click", () => {
         const container = document.querySelector(".container"); // Ensure you target the correct container element
 
-        if (display.value === "No Input" || display.value === "Invalid Input") {
+        if (display.value === "No Input" || display.value === "Invalid Input" || display.value === "Infinity") {
             container.classList.add("bg-orange"); // Add red background with animation
             setTimeout(() => {
                 container.classList.remove("bg-orange");
