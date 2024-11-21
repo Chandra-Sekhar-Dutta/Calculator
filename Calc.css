@@ -1,0 +1,233 @@
+/* Reset and global styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Background styling */
+
+body {
+    background: linear-gradient(135deg, #007aff, #32dba5);
+    overflow: hidden;
+    /* Prevent scrollbars for animation */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    animation: ripple 15s infinite;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.small {
+    width: 200px;
+    height: 200px;
+    left: -100px;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.medium {
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    bottom: -200px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.large {
+    width: 600px;
+    height: 600px;
+    left: -300px;
+    bottom: -300px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.xlarge {
+    width: 800px;
+    height: 800px;
+    left: -400px;
+    bottom: -400px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.xxlarge {
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    bottom: -500px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+
+/* Container styling */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    /* Ensure container is above background ripples */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+/* Orange background animation for errors */
+
+.bg-orange {
+    background-color: #f9a825;
+    /* Soft orange */
+    box-shadow: 0 0 30px 10px rgba(249, 168, 37, 0.6);
+    animation: pulse-orange 1s infinite;
+}
+
+
+/* Teal background animation for success */
+
+.bg-teal {
+    background-color: #009688;
+    /* Soft teal */
+    box-shadow: 0 0 30px 10px rgba(0, 150, 136, 0.6);
+    animation: pulse-teal 1s infinite;
+}
+
+
+/* Keyframe for pulsing orange effect */
+
+@keyframes pulse-orange {
+    0%,
+    100% {
+        box-shadow: 0 0 30px 10px rgba(249, 168, 37, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 40px 15px rgba(249, 168, 37, 0.8);
+    }
+}
+
+
+/* Keyframe for pulsing teal effect */
+
+@keyframes pulse-teal {
+    0%,
+    100% {
+        box-shadow: 0 0 30px 10px rgba(0, 150, 136, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 40px 15px rgba(0, 150, 136, 0.8);
+    }
+}
+
+
+/* Calculator styling */
+
+.calculator {
+    width: 320px;
+    padding: 20px;
+    background: rgba(240, 240, 243, 0.95);
+    border-radius: 30px;
+    box-shadow: 10px 10px 30px #d1cdc7, -10px -10px 30px #ffffff;
+    position: relative;
+    z-index: 5;
+}
+
+
+/* Display area styling */
+
+#TextArea {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    border-radius: 15px;
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    text-align: right;
+    color: #333;
+}
+
+
+/* Button styling */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.button {
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    background: #e0e0e0;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    color: #333;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.button:active {
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    color: #007aff;
+    border: 2px solid #007aff;
+}
+
+
+/* Operator and equal button styling */
+
+.operator {
+    color: #4a90e2;
+}
+
+.equal {
+    background: #4a90e2;
+    color: #fff;
+    box-shadow: 5px 5px 10px #3a75b8, -5px -5px 10px #5ca3ff;
+    position: relative;
+    z-index: 10;
+}
+
+.equal:hover {
+    background: #63c2f8;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5), 0 -4px 8px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    color: #003e7e;
+    border: 2px solid #003e7e;
+}
+
+.equal:active {
+    box-shadow: inset 5px 5px 10px #3a75b8, inset -5px -5px 10px #5ca3ff;
+}
