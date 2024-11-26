@@ -3,24 +3,46 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    /* Cyberpunk-style font */
     box-sizing: border-box;
 }
 
 
-/* Background styling */
+/* Cyberpunk Gradient Background */
 
 body {
-    background: linear-gradient(135deg, #007aff, #32dba5);
+    background: linear-gradient(135deg, #020024, #6a0572, #00d4ff, #ff0090);
+    background-size: 400% 400%;
+    animation: neon-ripple 8s ease infinite;
     overflow: hidden;
-    /* Prevent scrollbars for animation */
+    color: #f0f0f0;
 }
+
+
+/* Ripple-inspired gradient animation */
+
+@keyframes neon-ripple {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+/* Glowing Circle Animations */
 
 .circle {
     position: absolute;
     border-radius: 50%;
     animation: ripple 15s infinite;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5);
+    mix-blend-mode: screen;
 }
 
 .small {
@@ -28,7 +50,7 @@ body {
     height: 200px;
     left: -100px;
     bottom: -100px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 255, 255, 0.2);
 }
 
 .medium {
@@ -36,7 +58,7 @@ body {
     height: 400px;
     left: -200px;
     bottom: -200px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 0, 255, 0.2);
 }
 
 .large {
@@ -44,7 +66,7 @@ body {
     height: 600px;
     left: -300px;
     bottom: -300px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 255, 0, 0.2);
 }
 
 .xlarge {
@@ -52,7 +74,7 @@ body {
     height: 800px;
     left: -400px;
     bottom: -400px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 0, 0.2);
 }
 
 .xxlarge {
@@ -60,7 +82,7 @@ body {
     height: 1000px;
     left: -500px;
     bottom: -500px;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 0, 0, 0.2);
 }
 
 @keyframes ripple {
@@ -76,7 +98,7 @@ body {
 }
 
 
-/* Container styling */
+/* Calculator Container */
 
 .container {
     display: flex;
@@ -86,71 +108,97 @@ body {
     height: 100vh;
     position: relative;
     z-index: 1;
-    /* Ensure container is above background ripples */
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 
-/* Orange background animation for errors */
+/* Error and Success States */
 
 .bg-orange {
-    background-color: #f9a825;
-    /* Soft orange */
-    box-shadow: 0 0 30px 10px rgba(249, 168, 37, 0.6);
-    animation: pulse-orange 1s infinite;
+    background: linear-gradient(45deg, #ff3d00, #ff8a00);
+    background-size: 200% 200%;
+    animation: gradient-orange 3s ease infinite, pulse-orange 1s infinite;
+    box-shadow: 0 0 30px 10px rgba(255, 61, 0, 0.8);
 }
-
-
-/* Teal background animation for success */
 
 .bg-teal {
-    background-color: #009688;
-    /* Soft teal */
-    box-shadow: 0 0 30px 10px rgba(0, 150, 136, 0.6);
-    animation: pulse-teal 1s infinite;
+    background: linear-gradient(45deg, #00e5ff, #00ffcc);
+    background-size: 200% 200%;
+    animation: gradient-teal 3s ease infinite, pulse-teal 1s infinite;
+    box-shadow: 0 0 30px 10px rgba(0, 229, 255, 0.8);
 }
 
 
-/* Keyframe for pulsing orange effect */
+/* Gradient Animation for Orange */
+
+@keyframes gradient-orange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Gradient Animation for Teal */
+
+@keyframes gradient-teal {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Pulse Animation for Orange */
 
 @keyframes pulse-orange {
     0%,
     100% {
-        box-shadow: 0 0 30px 10px rgba(249, 168, 37, 0.6);
+        box-shadow: 0 0 30px 10px rgba(255, 61, 0, 0.6);
     }
     50% {
-        box-shadow: 0 0 40px 15px rgba(249, 168, 37, 0.8);
+        box-shadow: 0 0 40px 20px rgba(255, 61, 0, 1);
     }
 }
 
 
-/* Keyframe for pulsing teal effect */
+/* Pulse Animation for Teal */
 
 @keyframes pulse-teal {
     0%,
     100% {
-        box-shadow: 0 0 30px 10px rgba(0, 150, 136, 0.6);
+        box-shadow: 0 0 30px 10px rgba(0, 229, 255, 0.6);
     }
     50% {
-        box-shadow: 0 0 40px 15px rgba(0, 150, 136, 0.8);
+        box-shadow: 0 0 40px 20px rgba(0, 229, 255, 1);
     }
 }
 
 
-/* Calculator styling */
+/* Calculator Styling */
 
 .calculator {
-    width: 320px;
+    width: 360px;
     padding: 20px;
-    background: rgba(240, 240, 243, 0.95);
-    border-radius: 30px;
-    box-shadow: 10px 10px 30px #d1cdc7, -10px -10px 30px #ffffff;
+    background: rgba(15, 15, 24, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.4);
     position: relative;
     z-index: 5;
 }
 
 
-/* Display area styling */
+/* Display Area */
 
 #TextArea {
     margin-bottom: 20px;
@@ -160,17 +208,17 @@ body {
     width: 100%;
     height: 60px;
     padding: 10px;
-    font-size: 24px;
+    font-size: 28px;
     border: none;
-    border-radius: 15px;
-    background: #e0e0e0;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    border-radius: 10px;
+    background: #1f1f2e;
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.6), inset 0 0 15px rgba(255, 0, 255, 0.4);
     text-align: right;
-    color: #333;
+    color: #00e5ff;
 }
 
 
-/* Button styling */
+/* Button Grid */
 
 .buttons {
     display: grid;
@@ -178,56 +226,60 @@ body {
     gap: 15px;
 }
 
+
+/* Button Styling */
+
 .button {
     width: 100%;
     height: 60px;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 20px;
-    background: #e0e0e0;
-    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
-    color: #333;
-    transition: all 0.2s ease;
-    position: relative;
-    z-index: 10;
-}
-
-.button:active {
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    color: #fff;
+    background: linear-gradient(135deg, #1f1f2e, #292943);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), 0 -4px 10px rgba(255, 0, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
 .button:hover {
-    cursor: pointer;
-    background: #ffffff;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-    color: #007aff;
-    border: 2px solid #007aff;
+    background: linear-gradient(135deg, #292943, #1f1f2e);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5), 0 -6px 20px rgba(255, 0, 255, 0.5);
+    color: #00e5ff;
+    transform: translateY(-3px);
+}
+
+.button:active {
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.6), inset 0 0 15px rgba(255, 0, 255, 0.4);
 }
 
 
-/* Operator and equal button styling */
+/* Operator Buttons */
 
 .operator {
-    color: #4a90e2;
+    background: linear-gradient(135deg, #1c1c2e, #3a3a5c);
+    color: #ff0090;
 }
 
+.operator:hover {
+    background: linear-gradient(135deg, #3a3a5c, #1c1c2e);
+    color: #00d4ff;
+}
+
+
+/* Equal Button */
+
 .equal {
-    background: #4a90e2;
+    background: #ff0090;
     color: #fff;
-    box-shadow: 5px 5px 10px #3a75b8, -5px -5px 10px #5ca3ff;
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 8px 20px rgba(255, 0, 144, 0.6), 0 -6px 10px rgba(0, 255, 255, 0.4);
 }
 
 .equal:hover {
-    background: #63c2f8;
-    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5), 0 -4px 8px rgba(255, 255, 255, 0.4);
-    transform: translateY(-3px);
-    color: #003e7e;
-    border: 2px solid #003e7e;
+    background: #ff1ab1;
+    box-shadow: 0 10px 25px rgba(255, 26, 177, 0.8), 0 -6px 15px rgba(0, 255, 255, 0.6);
+    transform: translateY(-4px);
 }
 
 .equal:active {
-    box-shadow: inset 5px 5px 10px #3a75b8, inset -5px -5px 10px #5ca3ff;
+    box-shadow: inset 0 0 15px rgba(255, 0, 144, 0.7), inset 0 0 20px rgba(0, 255, 255, 0.7);
 }
