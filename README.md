@@ -20,8 +20,8 @@ A beautifully designed, interactive calculator with dynamic background animation
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone "https://github.com/Chandra-Sekhar-Dutta/Calculator.git"
+   cd "https://github.com/Chandra-Sekhar-Dutta/Calculator.git"
 Open the index.html file in your browser:
 You can double-click the file or use a live server extension in your code editor.
 Usage
