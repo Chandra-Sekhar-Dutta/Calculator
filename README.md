@@ -37,11 +37,11 @@ Orange background for invalid inputs or errors like division by zero.
 File Structure
 graphql
 Copy code
-/Modern Calculator
-|-- index.html         # Main HTML structure
-|-- Calc.css           # Styling for the calculator and animations
-|-- Calc.js            # JavaScript for calculator logic
-|-- README.md          # Documentation file
+## Modern Calculator
+- index.html         # Main HTML structure
+- Calc.css           # Styling for the calculator and animations
+- Calc.js            # JavaScript for calculator logic
+- README.md          # Documentation file
 How It Works
 JavaScript Features
 Input Handling:
